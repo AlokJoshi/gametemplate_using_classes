@@ -20,7 +20,9 @@ var room = {
 };
 
 // generate a large image texture for the room
-room.map.generate();
+//room.map.generate();
+//alternatively we can importImage
+room.map.importImage();
 
 // setup player
 var player = new Game.Player(50, 50);
@@ -95,37 +97,38 @@ Game.controls = {
 };
 
 window.addEventListener("keydown", function (e) {
-  switch (e.keyCode) {
-    case 37: // left arrow
+  switch (e.key) {
+    case 'ArrowLeft': // left arrow
       Game.controls.left = true;
       break;
-    case 38: // up arrow
+    case 'ArrowUp': // up arrow
       Game.controls.up = true;
       break;
-    case 39: // right arrow
+    case 'ArrowRight': // right arrow
       Game.controls.right = true;
       break;
-    case 40: // down arrow
+    case 'ArrowDown': // down arrow
       Game.controls.down = true;
       break;
   }
 }, false);
 
 window.addEventListener("keyup", function (e) {
-  switch (e.keyCode) {
-    case 37: // left arrow
+  console.log(e.key)
+  switch (e.key) {
+    case 'ArrowLeft': // left arrow
       Game.controls.left = false;
       break;
-    case 38: // up arrow
+    case 'ArrowUp': // up arrow
       Game.controls.up = false;
       break;
-    case 39: // right arrow
+    case `ArrowRight`: // right arrow
       Game.controls.right = false;
       break;
-    case 40: // down arrow
+    case `ArrowDown`: // down arrow
       Game.controls.down = false;
       break;
-    case 80: // key P pauses the game
+    case 'p': // key P pauses the game
       Game.togglePause();
       break;
   }
